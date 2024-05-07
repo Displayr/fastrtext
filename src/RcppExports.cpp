@@ -38,7 +38,7 @@ RcppExport SEXP _fastrtext_add_prefix(SEXP textsSEXP, SEXP prefixSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
@@ -73,14 +73,14 @@ RcppExport SEXP _fastrtext_add_pr(SEXP lineSEXP, SEXP prefixSEXP) {
     if (rcpp_isError_gen) {
         SEXP rcpp_msgSEXP_gen = Rf_asChar(rcpp_result_gen);
         UNPROTECT(1);
-        Rf_error(CHAR(rcpp_msgSEXP_gen));
+        Rf_error("%s", CHAR(rcpp_msgSEXP_gen));
     }
     UNPROTECT(1);
     return rcpp_result_gen;
 }
 
 // validate (ensure exported C++ functions exist before calling them)
-static int _fastrtext_RcppExport_validate(const char* sig) { 
+static int _fastrtext_RcppExport_validate(const char* sig) {
     static std::set<std::string> signatures;
     if (signatures.empty()) {
         signatures.insert("CharacterVector(*add_prefix)(const CharacterVector&,CharacterVector)");
@@ -90,7 +90,7 @@ static int _fastrtext_RcppExport_validate(const char* sig) {
 }
 
 // registerCCallable (register entry points for exported C++ functions)
-RcppExport SEXP _fastrtext_RcppExport_registerCCallable() { 
+RcppExport SEXP _fastrtext_RcppExport_registerCCallable() {
     R_RegisterCCallable("fastrtext", "_fastrtext_add_prefix", (DL_FUNC)_fastrtext_add_prefix_try);
     R_RegisterCCallable("fastrtext", "_fastrtext_add_pr", (DL_FUNC)_fastrtext_add_pr_try);
     R_RegisterCCallable("fastrtext", "_fastrtext_RcppExport_validate", (DL_FUNC)_fastrtext_RcppExport_validate);
