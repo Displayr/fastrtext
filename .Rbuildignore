@@ -11,3 +11,5 @@
 ^_pkgdown\.yml$
 ^data-raw$
 index.md
+^AGENTS\.md$
+^CLAUDE\.md$
